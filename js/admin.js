@@ -4,39 +4,49 @@
 const ADMIN_API_URL = "https://script.google.com/macros/s/AKfycbxnQrKWOidWHsILtNG66AeLB-uUKFymxoQ7HhyJaU6x0ACi0MiWwhEu0nO6PvfLhT4/exec";
 
 // ===============================
-// SUBMIT FORM
+// SUBMIT FORM ADMIN
 // ===============================
-document.getElementById("weddingForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("weddingForm");
 
-    const formData = new FormData(e.target);
+    if (!form) {
+        console.error("Form #weddingForm tidak ditemukan");
+        return;
+    }
 
-    let data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    data.timestamp = new Date().toISOString();
+        const formData = new FormData(form);
+        let data = {};
 
-    fetch(ADMIN_API_URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(res => {
-        console.log(res);
-        if (res.status === "success") {
-            alert("✅ Data mempelai berhasil disimpan!");
-            e.target.reset();
-        } else {
-            alert("⚠️ Error: " + res.message);
-        }
-    })
-    .catch(err => {
-        console.error(err);
-        alert("❌ Terjadi kesalahan koneksi");
+        // Convert FormData → Object JSON
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        // Kirim ke Google Apps Script
+        fetch(ADMIN_API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            console.log("Response:", result);
+
+            if (result.status === "success") {
+                alert("✅ Data mempelai berhasil disimpan ke Spreadsheet");
+                form.reset();
+            } else {
+                alert("❌ Gagal menyimpan data:\n" + (result.message || "Unknown error"));
+            }
+        })
+        .catch(error => {
+            console.error("Fetch Error:", error);
+            alert("❌ Terjadi kesalahan koneksi ke server");
+        });
     });
 });
