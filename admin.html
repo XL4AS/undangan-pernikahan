@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Wedding Organizer | Input Data Lengkap</title>
+
+    <!-- Font & Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- AKfycbxnQrKWOidWHsILtNG66AeLB-uUKFymxoQ7HhyJaU6x0ACi0MiWwhEu0nO6PvfLhT4 -->
+    <!-- https://script.google.com/macros/s/AKfycbxnQrKWOidWHsILtNG66AeLB-uUKFymxoQ7HhyJaU6x0ACi0MiWwhEu0nO6PvfLhT4/exec -->
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="form-header">
+        <h1><i class="fa-solid fa-gem"></i> Data Undangan Pernikahan</h1>
+        <p>Lengkapi formulir di bawah untuk memproses desain undangan klien.</p>
+    </div>
+
+    <form id="weddingForm">
+
+        <!-- MEMPELAI WANITA -->
+        <div class="section">
+            <div class="section-title">
+                <i class="fa-solid fa-venus"></i> Profil Mempelai Wanita
+            </div>
+            <div class="grid">
+                <div class="input-group full-width">
+                    <label>Nama Lengkap & Gelar</label>
+                    <input type="text" name="wanita_nama_lengkap" required>
+                </div>
+                <div class="input-group">
+                    <label>Nama Panggilan</label>
+                    <input type="text" name="wanita_nama_panggilan">
+                </div>
+                <div class="input-group">
+                    <label>Instagram (@)</label>
+                    <input type="text" name="wanita_ig">
+                </div>
+                <div class="input-group">
+                    <label>Nama Ayah Kandung</label>
+                    <input type="text" name="wanita_ayah">
+                </div>
+                <div class="input-group">
+                    <label>Nama Ibu Kandung</label>
+                    <input type="text" name="wanita_ibu">
+                </div>
+                <div class="input-group full-width">
+                    <label>Keterangan Anak</label>
+                    <input type="text" name="wanita_keterangan">
+                </div>
+            </div>
+        </div>
+
+        <!-- MEMPELAI PRIA -->
+        <div class="section">
+            <div class="section-title">
+                <i class="fa-solid fa-mars"></i> Profil Mempelai Pria
+            </div>
+            <div class="grid">
+                <div class="input-group full-width">
+                    <label>Nama Lengkap & Gelar</label>
+                    <input type="text" name="pria_nama_lengkap" required>
+                </div>
+                <div class="input-group">
+                    <label>Nama Panggilan</label>
+                    <input type="text" name="pria_nama_panggilan">
+                </div>
+                <div class="input-group">
+                    <label>Instagram (@)</label>
+                    <input type="text" name="pria_ig">
+                </div>
+                <div class="input-group">
+                    <label>Nama Ayah Kandung</label>
+                    <input type="text" name="pria_ayah">
+                </div>
+                <div class="input-group">
+                    <label>Nama Ibu Kandung</label>
+                    <input type="text" name="pria_ibu">
+                </div>
+                <div class="input-group full-width">
+                    <label>Keterangan Anak</label>
+                    <input type="text" name="pria_keterangan">
+                </div>
+            </div>
+        </div>
+
+        <!-- WAKTU & LOKASI -->
+        <div class="section">
+            <div class="section-title">
+                <i class="fa-solid fa-calendar-check"></i> Waktu & Lokasi Acara
+            </div>
+            <div class="grid">
+                <div class="input-group">
+                    <label>Tanggal Pernikahan</label>
+                    <input type="date" name="tanggal" required>
+                </div>
+                <div class="input-group">
+                    <label>Jam Akad</label>
+                    <input type="time" name="jam_akad">
+                </div>
+                <div class="input-group">
+                    <label>Jam Resepsi</label>
+                    <input type="text" name="jam_resepsi">
+                </div>
+                <div class="input-group">
+                    <label>Nama Gedung</label>
+                    <input type="text" name="gedung">
+                </div>
+                <div class="input-group full-width">
+                    <label>Alamat Lengkap</label>
+                    <textarea name="alamat" rows="2"></textarea>
+                </div>
+                <div class="input-group full-width">
+                    <label>Link Google Maps</label>
+                    <input type="url" name="maps">
+                </div>
+            </div>
+        </div>
+
+        <!-- FOTO & HADIAH -->
+        <div class="section">
+            <div class="section-title">
+                <i class="fa-solid fa-wallet"></i> Foto & Hadiah Digital
+            </div>
+            <div class="grid">
+                <div class="input-group full-width">
+                    <label>Upload Foto Prewedding</label>
+                    <div class="upload-area" onclick="fileUp.click()">
+                        <i class="fa-solid fa-images"></i>
+                        <p>Klik untuk memilih foto</p>
+                        <input type="file" id="fileUp" multiple hidden>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Nama Bank / E-Wallet</label>
+                    <input type="text" name="bank">
+                </div>
+                <div class="input-group">
+                    <label>Nomor Rekening</label>
+                    <input type="text" name="rekening">
+                </div>
+                <div class="input-group full-width">
+                    <label>Atas Nama</label>
+                    <input type="text" name="atas_nama">
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button class="btn-submit" type="submit">
+                <i class="fa-solid fa-cloud-arrow-up"></i> SIMPAN SEMUA DATA
+            </button>
+        </div>
+
+    </form>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
