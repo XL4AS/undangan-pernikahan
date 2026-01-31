@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- AKfycbxnQrKWOidWHsILtNG66AeLB-uUKFymxoQ7HhyJaU6x0ACi0MiWwhEu0nO6PvfLhT4 -->
-    <!-- https://script.google.com/macros/s/AKfycbxnQrKWOidWHsILtNG66AeLB-uUKFymxoQ7HhyJaU6x0ACi0MiWwhEu0nO6PvfLhT4/exec -->
-
     <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
@@ -22,7 +19,13 @@
         <p>Lengkapi formulir di bawah untuk memproses desain undangan klien.</p>
     </div>
 
-    <form id="weddingForm">
+    <!-- ================= FORM ================= -->
+    <form
+        id="weddingForm"
+        action="https://script.google.com/macros/s/AKfycbxnQrKWOidWHsILtNG66AeLB-uUKFymxoQ7HhyJaU6x0ACi0MiWwhEu0nO6PvfLhT4/exec"
+        method="POST"
+        target="hidden_iframe"
+    >
 
         <!-- MEMPELAI WANITA -->
         <div class="section">
@@ -123,20 +126,12 @@
             </div>
         </div>
 
-        <!-- FOTO & HADIAH -->
+        <!-- HADIAH DIGITAL -->
         <div class="section">
             <div class="section-title">
-                <i class="fa-solid fa-wallet"></i> Foto & Hadiah Digital
+                <i class="fa-solid fa-wallet"></i> Hadiah Digital
             </div>
             <div class="grid">
-                <div class="input-group full-width">
-                    <label>Upload Foto Prewedding</label>
-                    <div class="upload-area" onclick="fileUp.click()">
-                        <i class="fa-solid fa-images"></i>
-                        <p>Klik untuk memilih foto</p>
-                        <input type="file" id="fileUp" multiple hidden>
-                    </div>
-                </div>
                 <div class="input-group">
                     <label>Nama Bank / E-Wallet</label>
                     <input type="text" name="bank">
@@ -161,6 +156,10 @@
     </form>
 </div>
 
+<!-- IFRAME HIDDEN (WAJIB) -->
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<!-- JS (UX SAJA, TANPA FETCH) -->
 <script src="js/admin.js"></script>
 </body>
 </html>
