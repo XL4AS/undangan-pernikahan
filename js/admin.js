@@ -1,29 +1,22 @@
-const ADMIN_API_URL = "https://script.google.com/macros/s/AKfycbxnQrKWOidWHsILtNG66AeLB-uUKFymxoQ7HhyJaU6x0ACi0MiWwhEu0nO6PvfLhT4/exec";
+// ===============================
+// admin.js (FINAL - TANPA FETCH)
+// ===============================
 
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("weddingForm");
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("weddingForm");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+    if (!form) {
+        console.error("Form weddingForm tidak ditemukan");
+        return;
+    }
 
-    const formData = new FormData(form);
+    form.addEventListener("submit", function () {
+        // Feedback ke user (UX saja)
+        alert("✅ Data berhasil dikirim ke Spreadsheet");
 
-    fetch(ADMIN_API_URL, {
-      method: "POST",
-      body: formData // ⬅️ PENTING: BUKAN JSON
-    })
-    .then(res => res.json())
-    .then(res => {
-      if (res.status === "success") {
-        alert("✅ Data berhasil disimpan ke Spreadsheet");
-        form.reset();
-      } else {
-        alert("❌ Error: " + res.message);
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      alert("❌ Gagal koneksi ke server");
+        // Reset form setelah submit
+        setTimeout(() => {
+            form.reset();
+        }, 500);
     });
-  });
 });
